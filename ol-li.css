@@ -1,0 +1,43 @@
+/* Styled ordered list */
+ol {
+  counter-reset: list-counter;
+  padding-left: 0;
+  margin: 20px 0;
+}
+
+ol li {
+  position: relative;
+  list-style: none;
+  background: #ffffff;
+  padding: 12px 18px;
+  margin: 10px 0;
+  border-left: 5px solid #4ca1af;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+ol li::before {
+  counter-increment: list-counter;
+  content: counter(list-counter);
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #4ca1af;
+  color: white;
+  font-weight: bold;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Hover effect */
+ol li:hover {
+  transform: scale(1.02);
+  border-left-color: #007BFF;
+}
