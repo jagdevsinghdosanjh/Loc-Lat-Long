@@ -26,6 +26,28 @@ templates = Jinja2Templates(directory="templates")
 async def load_index(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
+@app.get("/home", response_class=HTMLResponse)
+async def load_home(request: Request):
+    return templates.TemplateResponse("home.html", {"request": request})
+
+@app.get("/features", response_class=HTMLResponse)
+async def load_features(request: Request):
+    return templates.TemplateResponse("features.html", {"request": request})
+
+@app.get("/findlocation", response_class=HTMLResponse)
+async def load_findlocation(request: Request):
+    return templates.TemplateResponse("findlocationonmap.html", {"request": request})
+
+
+@app.get("/about", response_class=HTMLResponse)
+async def load_about(request: Request):
+    return templates.TemplateResponse("about.html", {"request": request})
+
+@app.get("/contact", response_class=HTMLResponse)
+async def load_contact(request: Request):
+    return templates.TemplateResponse("contact.html", {"request": request})
+
+
 # Route to handle logging
 @app.post("/log-access")
 async def log_access(request: Request):
