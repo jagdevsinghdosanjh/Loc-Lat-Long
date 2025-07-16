@@ -63,15 +63,34 @@ async def log_access(request: Request):
         f.write(log_entry)
     return {"status": "logged"}
 
+# @app.post("/submit-contact")
+# async def submit_contact(
+#     name: str = Form(...),
+#     email: str = Form(...),
+#     message: str = Form(...)
+# ):
+#     # You can log, store, or email this data
+#     print(f"Contact Form Submitted:\nName: {name}\nEmail: {email}\nMessage: {message}")
+#     return {"status": "success", "message": "Thank you for contacting us!"}
+
+from fastapi import Form, Request, status
+from fastapi.responses import RedirectResponse
+
 @app.post("/submit-contact")
 async def submit_contact(
+    request: Request,
     name: str = Form(...),
     email: str = Form(...),
     message: str = Form(...)
 ):
-    # You can log, store, or email this data
     print(f"Contact Form Submitted:\nName: {name}\nEmail: {email}\nMessage: {message}")
-    return {"status": "success", "message": "Thank you for contacting us!"}
+
+    # Redirect to home page after submission
+    redirect_url = request.url_for("load_index")  # assuming your home route is named 'load_index'
+    return RedirectResponse(url=redirect_url, status_code=status.HTTP_303_SEE_OTHER)
+
+
+
 
 
 
