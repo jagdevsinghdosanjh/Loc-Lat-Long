@@ -63,6 +63,13 @@ async def log_access(request: Request):
         f.write(log_entry)
     return {"status": "logged"}
 
+@app.get("/get-access-logs")
+def get_logs():
+    # fetch from database
+    logs = session.query(AccessLog).order_by(AccessLog.timestamp.desc()).all()
+    return [{"timestamp": l.timestamp, "agent": l.agent, "location": l.location} for l in logs]
+
+
 # @app.post("/submit-contact")
 # async def submit_contact(
 #     name: str = Form(...),
