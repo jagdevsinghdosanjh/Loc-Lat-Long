@@ -29,7 +29,20 @@ templates = Jinja2Templates(directory="templates")
 # Route for index.html
 @app.get("/", response_class=HTMLResponse)
 async def load_index(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    try:
+        with open("access_log.txt", "r") as f:
+            logs = f.read()
+    except FileNotFoundError:
+        logs = "No access logs found."
+    
+    return templates.TemplateResponse("index.html", {
+        "request": request,
+        "access_logs": logs
+    })
+
+# @app.get("/", response_class=HTMLResponse)
+# async def load_index(request: Request):
+#     return templates.TemplateResponse("index.html", {"request": request})
 
 # Route for about.html
 @app.get("/about", response_class=HTMLResponse)
