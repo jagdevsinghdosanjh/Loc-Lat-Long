@@ -31,6 +31,11 @@ async def load_index(request: Request):
 async def load_about(request: Request):
     return templates.TemplateResponse("about.html", {"request": request})
 
+# Route for features.html
+@app.get("/features", response_class=HTMLResponse)
+async def load_features(request: Request):
+    return templates.TemplateResponse("features.html", {"request": request})
+
 # Route for contact.html
 @app.get("/contact", response_class=HTMLResponse)
 async def load_contact(request: Request):
