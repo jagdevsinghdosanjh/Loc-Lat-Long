@@ -49,16 +49,16 @@
     <div class="container">
       <a href="https://b-tech-ce.vercel.app/"><h2>Have a fun in math (Math-Quiz) - B.Tech Graduates</h2></a>
     </div>
-    <ul id="logOutput">
+    {% comment %} <ul id="logOutput">
   {% for item in log_items %}
     <li>{{ item }}</li>
   {% endfor %}
-</ul>
+</ul> {% endcomment %}
 
-    {% comment %} <section class="access-log">
+    <section class="access-log">
       <h2>📘 Access Log</h2>
       <ul id="logOutput"></ul>
-    </section> {% endcomment %}
+    </section> 
     <script src="static/script.js"></script>
     <script src="static/logging-logic.js"></script>
     <script src="static/log-script.js"></script>
