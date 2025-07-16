@@ -61,6 +61,16 @@ async def log_access(request: Request):
         f.write(log_entry)
     return {"status": "logged"}
 
+@app.post("/submit-contact")
+async def submit_contact(
+    name: str = Form(...),
+    email: str = Form(...),
+    message: str = Form(...)
+):
+    # You can log, store, or email this data
+    print(f"Contact Form Submitted:\nName: {name}\nEmail: {email}\nMessage: {message}")
+    return {"status": "success", "message": "Thank you for contacting us!"}
+
 
 
 # from fastapi import FastAPI, Request
