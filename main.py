@@ -7,6 +7,7 @@ from datetime import datetime
 from fastapi import Form
 from fastapi import status
 from fastapi.responses import RedirectResponse
+from fastapi.responses import PlainTextResponse
 
 
 app = FastAPI()
@@ -65,6 +66,14 @@ async def log_access(request: Request):
         f.write(log_entry)
     return {"status": "logged"}
 
+@app.get("/get-access-logs", response_class=PlainTextResponse)
+async def get_access_logs():
+    try:
+        with open("access_log.txt", "r") as f:
+            logs = f.read()
+        return logs
+    except FileNotFoundError:
+        return "No access logs found."
 
 
 # @app.post("/submit-contact")
