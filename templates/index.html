@@ -1,66 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Find My Location</title>
-  <link rel="stylesheet" href="static/styles.css" />
-  <link rel="stylesheet" href="static/ol-li.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.5.2/css/ionicons.min.css" />
-  <link rel="stylesheet" href="static/header-footer-style.css" />
-  <link rel="stylesheet" href="static/csslogstyle.css">
-</head>
-<body>
-  <!-- Header -->
-<header class="site-header">
-  <div class="logo">SmartSchool <span>AI By Jagdev Singh Dosanjh</span></div>
-  <nav class="nav-links">
-    <a href="/">Home</a>
-    <a href="/features">Features</a>
-    <a href="/about">About</a>
-    <a href="/contact">Contact</a>
-  </nav>
-</header>
-  <div class="container">
-    <h1>🌐 Your Coordinates</h1>
-    <button id="getLocationBtn">Get Location</button>
-    <p id="output"></p>
-  </div>
-  <ol>
-    <li> <a href="/liveloconmap"> Find Me Live on Map.</a></li>
-    <li> <a href="/findlocationonmap">View Me Live on GMap</a></li>
-  </ol>
-  <div class="container">
-    <a href="https://b-tech-ce.vercel.app/">
-    <h2>Have a fun in math (Math-Quiz) - B.Tech Graduates</h2>
-    </a>
-  </div>
-  <section class="access-log">
-  <h2>📘 Access Log</h2>
-  <ul id="logOutput"></ul>
-</section>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find My Location</title>
+    <link rel="stylesheet" href="static/styles.css" />
+    <link rel="stylesheet" href="static/ol-li.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.5.2/css/ionicons.min.css" />
+    <link rel="stylesheet" href="static/header-footer-style.css" />
+    <link rel="stylesheet" href="static/csslogstyle.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="site-header">
+      <div class="logo">
+        SmartSchool <span>AI By Jagdev Singh Dosanjh</span>
+      </div>
+      <nav class="nav-links">
+        <a href="/">Home</a>
+        <a href="/features">Features</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </header>
+    <div class="container">
+      <h1>🌐 Your Coordinates</h1>
+      <button id="getLocationBtn">Get Location</button>
+      <p id="output"></p>
+    </div>
+    <ol>
+      <li>
+        <a href="/liveloconmap">Find Me Live on Map.</a>
+      </li>
+      <li>
+        <a href="/findlocationonmap">View Me Live on GMap</a>
+      </li>
+    </ol>
+    <div class="container">
+      <a href="https://b-tech-ce.vercel.app/"><h2>Have a fun in math (Math-Quiz) - B.Tech Graduates</h2></a>
+    </div>
+    <section class="access-log">
+      <h2>📘 Access Log</h2>
+      <ul id="logOutput"></ul>
+    </section>
+<script src="{{ url_for('static', path='script.js') }}"></script>
 
-   <script src="static/script.js"></script>
-  <script src="static/logging-logic.js"></script>
-  <script src="static/log-script.js"></script>
-   <!-- Footer -->
-<footer class="site-footer">
-  <p>Government High School, Chananke - Amritsar</p>
-  <p>&copy; 2025 SmartSchoolAI. All rights reserved.</p>
-  <div class="footer-links">
-    <a href="#">Privacy Policy</a>
-    <a href="#">Terms of Service</a>
-  </div>
-</footer>
-</body>
+    <script src="static/script.js"></script>
+    <script src="static/logging-logic.js"></script>
+    <script src="static/log-script.js"></script>
+    <!-- Footer -->
+    <footer class="site-footer">
+      <p>Government High School, Chananke - Amritsar</p>
+      <p>&copy; 2025 SmartSchoolAI. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </footer>
+  </body>
 </html>
