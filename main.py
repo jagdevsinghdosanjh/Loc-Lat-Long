@@ -32,10 +32,7 @@ async def load_index(request: Request):
     except FileNotFoundError:
         logs = "No access logs found."
     
-    return templates.TemplateResponse("index.html", {
-        "request": request,
-        "access_logs": logs
-    })
+    return templates.TemplateResponse("index.html", {"request": request,"access_logs": logs})
 
 # @app.get("/", response_class=HTMLResponse)
 # async def load_index(request: Request):
