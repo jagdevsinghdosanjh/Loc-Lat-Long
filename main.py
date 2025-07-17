@@ -51,7 +51,7 @@ async def load_about(request: Request):
 @app.get("/holiday")
 async def load_holiday():
     # return FileResponse("Docs/iHRMS.pdf", media_type='application/pdf')
-    return FileResponse("", media_type="application/pdf", filename="iHRMS.pdf")
+    return FileResponse("/iHRMS.pdf", media_type="application/pdf", filename="iHRMS.pdf")
 
 
 # @app.get("/holiday", response_class=HTMLResponse)
