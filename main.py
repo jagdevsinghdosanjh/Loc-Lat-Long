@@ -48,10 +48,6 @@ async def load_index(request: Request):
 async def load_about(request: Request):
     return templates.TemplateResponse("about.html", {"request": request})
 
-
-
-app = FastAPI()
-
 @app.get("/holiday")
 async def load_holiday():
     # return FileResponse("Docs/iHRMS.pdf", media_type='application/pdf')
