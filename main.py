@@ -6,8 +6,7 @@ from fastapi.templating import Jinja2Templates
 from datetime import datetime
 from fastapi import Form
 from fastapi import status
-from fastapi.responses import RedirectResponse
-from fastapi.responses import PlainTextResponse
+from fastapi.responses import RedirectResponse, PlainTextResponse, FileResponse
 
 
 app = FastAPI()
@@ -49,9 +48,18 @@ async def load_index(request: Request):
 async def load_about(request: Request):
     return templates.TemplateResponse("about.html", {"request": request})
 
-@app.get("/holiday", response_class=HTMLResponse)
-async def load_holiday(request: Request):
-    return templates.TemplateResponse("/Docs/iHRMS.pdf", {"request": request})
+
+
+app = FastAPI()
+
+@app.get("/holiday")
+async def load_holiday():
+    return FileResponse("Docs/iHRMS.pdf", media_type='application/pdf')
+
+
+# @app.get("/holiday", response_class=HTMLResponse)
+# async def load_holiday(request: Request):
+#     return templates.TemplateResponse("/Docs/iHRMS.pdf", {"request": request})
 
 # Route for features.html
 @app.get("/features", response_class=HTMLResponse)
