@@ -24,7 +24,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
 # Route for index.html
-@app.post("/", response_class=HTMLResponse)
+@app.get("/", response_class=HTMLResponse)
 async def load_index(request: Request):
     try:
         with open("access_log.txt", "r") as f:
