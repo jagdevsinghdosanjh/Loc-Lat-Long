@@ -51,7 +51,7 @@ async def load_about(request: Request):
 
 @app.get("/holiday", response_class=HTMLResponse)
 async def load_holiday(request: Request):
-    return templates.TemplateResponse("iHRMS.pdf", {"request": request})
+    return templates.TemplateResponse("/Docs/iHRMS.pdf", {"request": request})
 
 # Route for features.html
 @app.get("/features", response_class=HTMLResponse)
