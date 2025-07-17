@@ -17,11 +17,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Mount static files
-app.mount("/static", StaticFiles(directory="static"), name="static")
+# # Mount static files
+# app.mount("/Docs", StaticFiles(directory="Docs"), name="Docs")
 
-# Set up Jinja2 templates
-templates = Jinja2Templates(directory="templates")
+# # Set up Jinja2 templates
+# templates = Jinja2Templates(directory="templates")
 
 # Route for index.html
 @app.get("/", response_class=HTMLResponse)
@@ -49,7 +49,7 @@ async def load_about(request: Request):
 
 
 # Mount static files (PDFs, images, etc.)
-app.mount("/static", StaticFiles(directory="."), name="static")
+app.mount("/DOcs", StaticFiles(directory="."), name="Docs")
 
 # Set up templates
 templates = Jinja2Templates(directory="templates")
