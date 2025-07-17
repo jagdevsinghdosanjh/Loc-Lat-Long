@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.templating import Jinja2Templates
 from datetime import datetime
 from fastapi import Form,status
-from fastapi.responses import RedirectResponse, PlainTextResponse   
+from fastapi.responses import RedirectResponse, PlainTextResponse
 
 app = FastAPI()
 
@@ -18,7 +18,7 @@ app.add_middleware(
 )
 
 # Mount static files
-app.mount("/Docs", StaticFiles(directory="Docs"), name="Docs")
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Set up Jinja2 templates
 templates = Jinja2Templates(directory="templates")
