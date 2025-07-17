@@ -4,10 +4,8 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.templating import Jinja2Templates
 from datetime import datetime
-from fastapi import Form
-from fastapi import status
-from fastapi.responses import RedirectResponse, PlainTextResponse, FileResponse
-
+from fastapi import Form,status
+from fastapi.responses import RedirectResponse, PlainTextResponse   
 
 app = FastAPI()
 
@@ -48,10 +46,23 @@ async def load_index(request: Request):
 async def load_about(request: Request):
     return templates.TemplateResponse("about.html", {"request": request})
 
-@app.get("/holiday")
-async def load_holiday():
-    # return FileResponse("Docs/iHRMS.pdf", media_type='application/pdf')
-    return FileResponse("/iHRMS.pdf", media_type="application/pdf", filename="iHRMS.pdf")
+
+
+# Mount static files (PDFs, images, etc.)
+app.mount("/static", StaticFiles(directory="."), name="static")
+
+# Set up templates
+templates = Jinja2Templates(directory="templates")
+
+@app.get("/holiday", response_class=HTMLResponse)
+async def load_holiday(request: Request):
+    return templates.TemplateResponse("holiday.html", {"request": request})
+
+
+# @app.get("/holiday")
+# async def load_holiday():
+#     # return FileResponse("Docs/iHRMS.pdf", media_type='application/pdf')
+#     return FileResponse("/iHRMS.pdf", media_type="application/pdf", filename="iHRMS.pdf")
 
 
 # @app.get("/holiday", response_class=HTMLResponse)
