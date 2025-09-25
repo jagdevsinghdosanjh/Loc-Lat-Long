@@ -7,7 +7,6 @@ python-multipart==0.0.6
 aiofiles==23.1.0
 pydantic==2.7.3
 python-magnumclient==4.9.0
-starlette==0.27.0
+starlette==0.36.3
 fastapi-utils==0.2.1
 python-dotenv==1.0.0
-
